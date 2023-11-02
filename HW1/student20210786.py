@@ -2,18 +2,25 @@
 
 from openpyxl import load_workbook
 from operator import itemgetter
+import math
 
 
 def get_num(stu_num) :
-    A_num = int(stu_num * 0.3)
-    APlus_num = A_num // 2
-    A_num -= APlus_num
-    B_num = int(stu_num * 0.7 - (A_num + APlus_num))
-    BPlus_num = B_num // 2
-    B_num -= BPlus_num
-    C_num = stu_num - (A_num + B_num + APlus_num + BPlus_num)
-    CPlus_num = C_num // 2
-    C_num -= CPlus_num
+    A_num = stu_num * 0.3 # 22.2 
+    APlus_num = A_num / 2 # 11.1
+    A_num -= APlus_num  
+    A_num = math.trunc(A_num) # 11
+    APlus_num = math.trunc(APlus_num) # 11
+    
+    B_num = stu_num * 0.4 # 29.6 
+    BPlus_num = B_num / 2 # 14.8   
+    B_num -= BPlus_num # 14.8    
+    B_num = math.trunc(B_num) # 14
+    BPlus_num = math.trunc(BPlus_num) # 14
+      
+    C_num = stu_num - (A_num + B_num + APlus_num + BPlus_num) # 74 - 50 == 24
+    CPlus_num = C_num // 2 # 12
+    C_num -= CPlus_num # 12
 
     return A_num, APlus_num, B_num, BPlus_num, C_num, CPlus_num
 
