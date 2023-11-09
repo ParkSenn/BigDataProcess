@@ -24,5 +24,5 @@ with open(fileName, "rt") as fp:
 
 
 outputName = sys.argv[2]
-with open("outputName", "w") as f:
+with open(outputName, "w") as f:
     f.writelines(output)
