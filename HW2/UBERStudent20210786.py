@@ -1,11 +1,14 @@
 #!/usr/bin/python3
 import calendar
+import sys
+
+fileName = sys.argv[1]
 
 output = []
 weekDay = "MON/TUE/WED/THU/FRI/SAT/SUN"
 weekDay_list = weekDay.split("/")
 
-with open("uber_exp.txt", "rt") as fp:
+with open(fileName, "rt") as fp:
     for line in fp:
         info = line.split(",") # 지역, 날짜, 차량 수, 여행
         baseNum = info[0]
@@ -20,5 +23,6 @@ with open("uber_exp.txt", "rt") as fp:
         output.append(result)
 
 
-with open("uberoutput.txt", "w") as f:
+outputName = sys.argv[2]
+with open("outputName", "w") as f:
     f.writelines(output)
