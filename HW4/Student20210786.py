@@ -6,6 +6,10 @@ import operator
 from os import listdir
 
 
+trainingFile = sys.argv[1]
+testFile = sys.argv[2]
+
+
 def classify0(inX, dataSet, labels, k):
 	dataSetSize = dataSet.shape[0]
 	diffMat = np.tile(inX, (dataSetSize, 1)) - dataSet
@@ -46,8 +50,8 @@ def getArray(filename):
 		return result
 
 
-trainingFile = sys.argv[1]
-testFile = sys.argv[2]
+
+
 testList = listdir(testFile)
 length = len(testList)
 matrix, labels = CreateDataSet(trainingFile)
